@@ -1,0 +1,63 @@
+# =========================
+# C++ 编译生成文件
+# =========================
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.so
+*.dylib
+*.dll
+*.lib
+*.a
+
+# =========================
+# CMake 缓存与中间文件
+# =========================
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# 忽略你的 out-of-source 构建目录
+build/
+bin/
+lib/
+
+# =========================
+# VS Code 配置文件
+# =========================
+# 忽略大部分本地工作区缓存和数据库
+.vscode/*
+# 但保留这几个核心配置文件，方便在不同设备上同步调试环境
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/c_cpp_properties.json
+*.code-workspace
+.history/
+
+# =========================
+# 操作系统生成文件
+# =========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =========================
+# 数据文件夹 (按需开启)
+# =========================
+# 如果你的 data 文件夹里有非常大的测试视频或图片，可以取消下面几行的注释
+# data/*.mp4
+# data/*.avi
+# data/output/
