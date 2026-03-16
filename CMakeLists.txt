@@ -5,14 +5,16 @@ project(machine_vision)
 set(CMAKE_CXX_STANDARD 17)
 
 # OpenCV路径
-set(OpenCV_DIR "E:/opencv/build")
+#set(OpenCV_DIR "E:/opencv/build")
 
 find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 # 编译UTF-8，避免乱码
-add_compile_options(/utf-8)
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
 
 # 自动寻找 src 里的所有 cpp
 file(GLOB SRC_FILES "src/*.cpp")
