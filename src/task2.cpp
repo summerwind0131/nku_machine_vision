@@ -48,7 +48,7 @@ Mat myHist(Mat img)
 
 void main()
 {
-	Mat input = imread("../../data/testimg.jpg");
+	Mat input = imread("../testimg.jpg");
 
 	Mat gray;
 	//彩色图转为灰度图
