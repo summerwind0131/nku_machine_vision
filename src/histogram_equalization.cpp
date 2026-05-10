@@ -10,12 +10,12 @@ using namespace std;
 
 Mat myEqualizeHist(Mat img)
 {
-	//ç¡®ä¿è¾“å…¥å•é€šé“ç°åº¦å›¾ç‰‡
+	//È·±£ÊäÈëµ¥Í¨µÀ»Ò¶ÈÍ¼Æ¬
 	CV_Assert(img.type()==CV_8UC1);
 	Mat EqualizedImg;
 	/*
 	
-	å®Œå–„ç›´æ–¹å›¾å‡è¡¡åŒ–çš„è®¡ç®—è¿‡ç¨‹
+	ÍêÉÆÖ±·½Í¼¾ùºâ»¯µÄ¼ÆËã¹ı³Ì
 	
 	*/
 	EqualizedImg.create(img.rows,img.cols,img.type());
@@ -25,7 +25,7 @@ Mat myEqualizeHist(Mat img)
 	int N=img.cols;
 	int MN=M*N;
 
-	//å½¢æˆç›´æ–¹å›¾
+	//ĞÎ³ÉÖ±·½Í¼
 	for(int i=0;i<M;i++){
 		for(int j=0;j<N;j++){
 			int pixcelValue=img.at<uchar>(i,j);
@@ -33,14 +33,14 @@ Mat myEqualizeHist(Mat img)
 		}
 	}
 
-	//å½¢æˆç´¯è®¡ç›´æ–¹å›¾
+	//ĞÎ³ÉÀÛ¼ÆÖ±·½Í¼
 	int Hc[256]={0};
 	Hc[0]=H[0];
 	for(int p=1;p<k;p++){
 		Hc[p]=Hc[p-1]+H[p];
 	}
 
-	//è®¾ç½®æŸ¥æ‰¾è¡¨
+	//ÉèÖÃ²éÕÒ±í
 	uchar T[256]={0};
 	double factor=(double)(k-1)/MN;
 	for(int p=0;p<k;p++){
@@ -53,7 +53,7 @@ Mat myEqualizeHist(Mat img)
 			EqualizedImg.at<char>(i,j)=T[originalPixel];
 		}
 	}
-	//è¿”å›åŸå›¾åƒç»è¿‡ç›´æ–¹å›¾å‡è¡¡åŒ–åçš„å˜æ¢ç»“æœ
+	//·µ»ØÔ­Í¼Ïñ¾­¹ıÖ±·½Í¼¾ùºâ»¯ºóµÄ±ä»»½á¹û
 	return EqualizedImg;
 }
 
@@ -62,10 +62,10 @@ void main()
 	Mat input = imread("testimg.jpg");
 
 	Mat gray;
-	//å½©è‰²å›¾è½¬ä¸ºç°åº¦å›¾
+	//²ÊÉ«Í¼×ªÎª»Ò¶ÈÍ¼
 	cvtColor(input, gray, COLOR_BGR2GRAY);
 
-	//ç›´æ–¹å›¾å‡è¡¡åŒ–ï¼Œéœ€ç¼–ç¨‹å®ç°
+	//Ö±·½Í¼¾ùºâ»¯£¬Ğè±à³ÌÊµÏÖ
 	Mat EqualizedImg = myEqualizeHist(gray);
 	
 	imshow("input", input);

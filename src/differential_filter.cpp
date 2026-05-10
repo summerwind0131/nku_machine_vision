@@ -14,7 +14,7 @@ Mat myEdgeDetect(Mat img)
 	Mat EdgeImg;
     CV_Assert(img.type()==CV_8UC1);
 
-    //先进性平滑滤波，再使用一阶差分滤波器
+    //�Ƚ���ƽ���˲�����ʹ��һ�ײ���˲���
 
     Mat blurred;
     GaussianBlur(img,blurred,Size(3,3),0,0);
@@ -31,26 +31,25 @@ Mat myEdgeDetect(Mat img)
     addWeighted(abs_grad_x,0.5,abs_grad_y,0.5,0,EdgeImg);
 	/*
 
-	完善使用差分滤波器的边缘检测计算过程（利用线性滤波）
+	����ʹ�ò���˲����ı�Ե��������̣����������˲���
 
 	*/
 
 
-	//返回原图像经过边缘检测的结果EdgeImg
+	//����ԭͼ�񾭹���Ե���Ľ��EdgeImg
 	return EdgeImg;
 }
 
 
 int main()
 {
-	// 使用绝对路径以避免执行位置不同导致找不到文件
-	Mat input = imread("D:/CodingLife/machine_vision/src/testimg.jpg");
+	Mat input = imread("testimg.jpg");
 
 	Mat gray;
-	//彩色图转为灰度图
+	//��ɫͼתΪ�Ҷ�ͼ
 	cvtColor(input, gray, COLOR_BGR2GRAY);
 
-	//使用差分滤波器的边缘检测（利用线性滤波），需编程实现
+	//ʹ�ò���˲����ı�Ե��⣨���������˲���������ʵ��
 	Mat EdgeImg = myEdgeDetect(gray);
 
 	imshow("input", input);
