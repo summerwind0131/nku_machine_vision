@@ -61,3 +61,47 @@ Thumbs.db
 # data/*.mp4
 # data/*.avi
 # data/output/
+
+# =========================
+# LaTeX 编译缓存
+# =========================
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.xdv
+
+# =========================
+# 大作业局部生成文件
+# =========================
+final_projects/**/build/
+final_projects/**/outputs/
+final_projects/**/__pycache__/
+final_projects/**/.pytest_cache/
+final_projects/**/debug_masks*/
+final_projects/**/test_output.txt
+final_projects/**/out.txt
+
+# Project 1 保留小训练集和 KNN 模型，但忽略额外大测试集
+final_projects/project1_traditional_gesture/test_images/
+
+# Project 2 只保留必要 checkpoint 与空目录占位，不提交重复数据集
+final_projects/project2_deep_gesture/Hand_Posture_Hard_Stu/
+final_projects/project2_deep_gesture/data/raw/*
+final_projects/project2_deep_gesture/data/train/*
+final_projects/project2_deep_gesture/data/val/*
+!final_projects/project2_deep_gesture/data/raw/.gitkeep
+!final_projects/project2_deep_gesture/data/train/.gitkeep
+!final_projects/project2_deep_gesture/data/val/.gitkeep
+final_projects/project2_deep_gesture/test_images/*
+!final_projects/project2_deep_gesture/test_images/.gitkeep
+final_projects/project2_deep_gesture/checkpoints/*
+!final_projects/project2_deep_gesture/checkpoints/best_model.pth
